@@ -26,6 +26,18 @@ except FileNotFoundError:
 
 df.columns = df.columns.str.strip()  # 余分な空白を削除
 
+# サイドバーの一番上に "Chapter" を checkbox 形式で表示
+st.sidebar.header("Chapter")
+
+# df の 'session' 列からユニークな項目を取得
+sessions = df['session'].unique().tolist()
+
+# 各セッションに対してチェックボックスを作成
+selected_sessions = [session for session in sessions if st.sidebar.checkbox(session, value=True)]
+
+# 'session' 列をフィルタリングしてデータフレームを更新
+df = df[df['session'].isin(selected_sessions)]
+
 # サイドバーに big_class と mid_class と Topic を表示
 big_class = df['大分類'].unique().tolist()
 selected_big_class = st.sidebar.multiselect("Chapter を選択してください", big_class, default=big_class)
