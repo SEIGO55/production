@@ -50,7 +50,7 @@ if st.sidebar.button("問題をリフレッシュ"):
 # サイドバーで選択された Chapter と Topic に基づいてフィルタリング
 filtered_df = df[(df['大分類'].isin(selected_big_class)) &
                  (df['中分類'].isin(selected_mid_class)) &
-                 (df['topic'].isin(selected_topics))]
+                 (df['Topic'].isin(selected_topics))]
 
 # フィルタリング後のデータが存在するか確認
 if filtered_df.empty:
