@@ -35,7 +35,7 @@ mid_class = df[df['大分類'].isin(selected_big_class)]['中分類'].unique().t
 selected_mid_class = st.sidebar.multiselect("中分類を選択してください", mid_class, default=mid_class)
 
 # 選択された big_class, mid_classに基づいて Topic を抽出し、サイドバーに表示
-topic = df[(df['大分類'].isin(selected_big_class)) & (df['中分類'].isin(selected_mid_class))]['topic'].unique().tolist()
+topic = df[(df['大分類'].isin(selected_big_class)) & (df['中分類'].isin(selected_mid_class))]['Topic'].unique().tolist()
 selected_topics = st.sidebar.multiselect("Topic を選択してください", topic, default=topic)
 
 # 問題数をサイドバーで選択可能にする（5, 10, 15, 20, 30, 50）
