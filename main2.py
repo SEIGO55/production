@@ -75,7 +75,7 @@ def get_questions(num_questions):
             "question": row["question"],
             "options": options,
             "answer": row["correct_answer"],
-            "faq": row["fag"],
+            "faq": row["faq"],
             "answer_text": row["answer"],
             "q_id": row["q-id"]
         }
