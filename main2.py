@@ -71,7 +71,7 @@ def get_questions(num_questions):
 
         # 質問情報を保存
         question = {
-            "category": f'[{row["大分類"]}/{row["中分類"]}/{row["topic"]}]',
+            "category": f'[{row["大分類"]}/{row["中分類"]}/{row["Topic"]}]',
             "question": row["question"],
             "options": options,
             "answer": row["correct_answer"],
