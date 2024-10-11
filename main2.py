@@ -35,7 +35,7 @@ mid_class = df[df['大分類'].isin(selected_big_class)]['中分類'].unique().t
 selected_mid_class = st.sidebar.multiselect("中分類を選択してください", mid_class, default=mid_class)
 
 # 選択された big_class, mid_classに基づいて Topic を抽出し、サイドバーに表示
-topic = df[(df['大分類'].isin(selected_big_class)) & (df['中分類'].isin(selected_mid_class))]['Topic'].unique().tolist()
+topic = df[(df['大分類'].isin(selected_big_class)) & (df['中分類'].isin(selected_mid_class))]['topic'].unique().tolist()
 selected_topics = st.sidebar.multiselect("Topic を選択してください", topic, default=topic)
 
 # 問題数をサイドバーで選択可能にする（5, 10, 15, 20, 30, 50）
@@ -50,7 +50,7 @@ if st.sidebar.button("問題をリフレッシュ"):
 # サイドバーで選択された Chapter と Topic に基づいてフィルタリング
 filtered_df = df[(df['大分類'].isin(selected_big_class)) &
                  (df['中分類'].isin(selected_mid_class)) &
-                 (df['Topic'].isin(selected_topics))]
+                 (df['topic'].isin(selected_topics))]
 
 # フィルタリング後のデータが存在するか確認
 if filtered_df.empty:
@@ -71,11 +71,11 @@ def get_questions(num_questions):
 
         # 質問情報を保存
         question = {
-            "category": f'[{row["大分類"]}/{row["中分類"]}/{row["Topic"]}]',
+            "category": f'[{row["大分類"]}/{row["中分類"]}/{row["topic"]}]',
             "question": row["question"],
             "options": options,
             "answer": row["correct_answer"],
-            "faq": row["faq"],
+            "faq": row["fag"],
             "answer_text": row["answer"],
             "q_id": row["q-id"]
         }
