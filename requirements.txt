@@ -2,3 +2,4 @@ openpyxl
 streamlit
 pandas
 streamlit_authenticator
+bibtexparser
